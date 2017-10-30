@@ -68,6 +68,7 @@ type IBotExchange interface {
 	GetTickerPrice(currency pair.CurrencyPair, assetType string) (ticker.Price, error)
 	UpdateTicker(currency pair.CurrencyPair, assetType string) (ticker.Price, error)
 	GetOrderbookEx(currency pair.CurrencyPair, assetType string) (orderbook.Base, error)
+	GetOrderbookSimple(currency pair.CurrencyPair, assetType string) (orderbook.Base, error)
 	UpdateOrderbook(currency pair.CurrencyPair, assetType string) (orderbook.Base, error)
 	GetEnabledCurrencies() []pair.CurrencyPair
 	GetExchangeAccountInfo() (AccountInfo, error)
@@ -379,4 +380,9 @@ func (e *Base) UpdateAvailableCurrencies(exchangeProducts []string, force bool) 
 		return cfg.UpdateExchangeConfig(exch)
 	}
 	return nil
+}
+
+// GetOrderbookSimple returns orderbook base on the currency pair, does not update exchange
+func (e *Base) GetOrderbookSimple(p pair.CurrencyPair, assetType string) (orderbook.Base, error) {
+	return e.Orderbooks.GetOrderbook(e.GetName(), p, assetType)
 }
