@@ -227,6 +227,10 @@ func (b *Bittrex) NewOrder(symbol string, amount, price float64, side, orderType
 	panic("not implemented")
 }
 
+func (b *Bittrex) GetOrders() ([]exchange.EOrder, error) {
+	panic("unimplemented")
+}
+
 // CancelOrder is used to cancel a buy or sell order.
 func (b *Bittrex) cancelOrder(uuid string) ([]Balance, error) {
 	var balances []Balance

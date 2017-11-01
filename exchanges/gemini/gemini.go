@@ -290,7 +290,7 @@ func (g *Gemini) CancelOrder(orderStr string) error {
 // by this account, including interactive orders placed through the UI. If
 // sessions = true will only cancel the order that is called on this session
 // asssociated with the APIKEY
-func (g *Gemini) CancelOrders(CancelBySession bool) (OrderResult, error) {
+func (g *Gemini) cancelOrders(CancelBySession bool) (OrderResult, error) {
 	response := OrderResult{}
 	path := geminiOrderCancelAll
 	if CancelBySession {
@@ -311,8 +311,12 @@ func (g *Gemini) GetOrderStatus(orderID int64) (Order, error) {
 		g.SendAuthenticatedHTTPRequest("POST", geminiOrderStatus, request, &response)
 }
 
+func (g *Gemini) GetOrders() ([]exchange.EOrder, error) {
+	panic("unimplemented")
+}
+
 // GetOrders returns active orders in the market
-func (g *Gemini) GetOrders() ([]Order, error) {
+func (g *Gemini) getOrders() ([]Order, error) {
 	response := []Order{}
 
 	return response,

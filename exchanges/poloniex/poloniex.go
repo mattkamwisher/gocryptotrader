@@ -439,6 +439,10 @@ func (p *Poloniex) PlaceOrder(currency string, rate, amount float64, immediate, 
 	return result, nil
 }
 
+func (p *Poloniex) GetOrders() ([]exchange.EOrder, error) {
+	panic("unimplemented")
+}
+
 func (p *Poloniex) NewOrder(symbol string, amount, price float64, side, orderType string) (int64, error) {
 	panic("not implemented")
 }

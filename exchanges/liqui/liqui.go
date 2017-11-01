@@ -210,6 +210,10 @@ func (l *Liqui) NewOrder(symbol string, amount, price float64, side, orderType s
 	panic("not implemented")
 }
 
+func (l *Liqui) GetOrders() ([]exchange.EOrder, error) {
+	panic("unimplemented")
+}
+
 // CancelOrder method is used for order cancelation.
 func (l *Liqui) CancelOrder(OrderID string) error {
 	req := url.Values{}

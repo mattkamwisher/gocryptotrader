@@ -73,8 +73,17 @@ type IBotExchange interface {
 	GetEnabledCurrencies() []pair.CurrencyPair
 	GetExchangeAccountInfo() (AccountInfo, error)
 	GetAuthenticatedAPISupport() bool
+}
+
+//Extended bot itterface for new methods
+type IBotExchangeEx interface {
 	NewOrder(symbol string, amount, price float64, side, orderType string) (int64, error)
 	CancelOrder(OrderID string) error
+	GetOrderStatus(orderID int64) (EOrder, error)
+	GetOrders() ([]EOrder, error)
+}
+
+type EOrder struct {
 }
 
 // SetAssetTypes checks the exchange asset types (whether it supports SPOT,
