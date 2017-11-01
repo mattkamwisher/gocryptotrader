@@ -80,7 +80,7 @@ type IBotExchangeEx interface {
 	IBotExchange
 	NewOrder(symbol string, amount, price float64, side, orderType string) (int64, error)
 	CancelOrder(OrderID string) error
-	GetOrderStatus(orderID int64) (EOrder, error)
+	GetOrder(orderID string) (EOrder, error)
 	GetOrders() ([]EOrder, error)
 }
 

@@ -223,6 +223,10 @@ func (b *Bittrex) CancelOrder(uuid string) error {
 	return err
 }
 
+func (b *Bittrex) GetOrder(orderID string) (exchange.EOrder, error) {
+	panic("unimplemented")
+}
+
 func (b *Bittrex) NewOrder(symbol string, amount, price float64, side, orderType string) (int64, error) {
 	panic("not implemented")
 }
@@ -286,7 +290,7 @@ func (b *Bittrex) Withdraw(currency, paymentID, address string, quantity float64
 }
 
 // GetOrder is used to retrieve a single order by UUID.
-func (b *Bittrex) GetOrder(uuid string) (Order, error) {
+func (b *Bittrex) getOrder(uuid string) (Order, error) {
 	var order Order
 	values := url.Values{}
 	values.Set("uuid", uuid)
