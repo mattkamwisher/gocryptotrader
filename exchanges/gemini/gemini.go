@@ -311,6 +311,10 @@ func (g *Gemini) GetOrderStatus(orderID int64) (Order, error) {
 		g.SendAuthenticatedHTTPRequest("POST", geminiOrderStatus, request, &response)
 }
 
+func (g *Gemini) GetOrder(orderID string) (exchange.EOrder, error) {
+	panic("unimplemented")
+}
+
 func (g *Gemini) GetOrders() ([]exchange.EOrder, error) {
 	panic("unimplemented")
 }
