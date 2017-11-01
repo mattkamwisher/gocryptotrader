@@ -103,6 +103,14 @@ func (l *LocalBitcoins) GetTrades(currency string, values url.Values) ([]LocalBi
 	return result, nil
 }
 
+func (l *LocalBitcoins) NewOrder(symbol string, amount, price float64, side, orderType string) (int64, error) {
+	panic("not implemented")
+}
+
+func (l *LocalBitcoins) CancelOrder(orderstr string) error {
+	panic("unimplemented")
+}
+
 func (l *LocalBitcoins) GetOrderbook(currency string) (LocalBitcoinsOrderbook, error) {
 	type response struct {
 		Bids [][]string `json:"bids"`

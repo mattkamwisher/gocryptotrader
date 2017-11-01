@@ -412,6 +412,10 @@ func (g *GDAX) PlaceMarketOrder(clientRef string, size, funds float64, side stri
 	return resp.ID, nil
 }
 
+func (g *GDAX) NewOrder(symbol string, amount, price float64, side, orderType string) (int64, error) {
+	panic("not implemented")
+}
+
 // PlaceMarginOrder places a new market order.
 // Orders can only be placed if the account has sufficient funds. Once an order
 // is placed, account funds will be put on hold for the duration of the order.

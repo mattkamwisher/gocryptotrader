@@ -206,19 +206,23 @@ func (l *Liqui) GetOrderInfo(OrderID int64) (map[string]OrderInfo, error) {
 	return result, l.SendAuthenticatedHTTPRequest(liquiOrderInfo, req, &result)
 }
 
+func (l *Liqui) NewOrder(symbol string, amount, price float64, side, orderType string) (int64, error) {
+	panic("not implemented")
+}
+
 // CancelOrder method is used for order cancelation.
-func (l *Liqui) CancelOrder(OrderID int64) (bool, error) {
+func (l *Liqui) CancelOrder(OrderID string) error {
 	req := url.Values{}
-	req.Add("order_id", strconv.FormatInt(OrderID, 10))
+	req.Add("order_id", OrderID)
 
 	var result CancelOrder
 
 	err := l.SendAuthenticatedHTTPRequest(liquiCancelOrder, req, &result)
 	if err != nil {
-		return false, err
+		return err
 	}
 
-	return true, nil
+	return nil
 }
 
 // GetTradeHistory returns trade history

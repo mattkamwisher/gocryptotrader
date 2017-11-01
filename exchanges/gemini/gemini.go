@@ -264,7 +264,7 @@ func (g *Gemini) NewOrder(symbol string, amount, price float64, side, orderType 
 
 // CancelOrder will cancel an order. If the order is already canceled, the
 // message will succeed but have no effect.
-func (g *Gemini) CancelOrder(OrderID int64) (Order, error) {
+func (g *Gemini) CancelOrderEx(OrderID int64) (Order, error) {
 	request := make(map[string]interface{})
 	request["order_id"] = OrderID
 
@@ -274,6 +274,16 @@ func (g *Gemini) CancelOrder(OrderID int64) (Order, error) {
 		return Order{}, err
 	}
 	return response, nil
+}
+
+func (g *Gemini) CancelOrder(orderStr string) error {
+	var orderID int64
+	var err error
+	if orderID, err = strconv.ParseInt(orderStr, 10, 64); err == nil {
+		return err
+	}
+	_, err = g.CancelOrderEx(orderID)
+	return err
 }
 
 // CancelOrders will cancel all outstanding orders created by all sessions owned
