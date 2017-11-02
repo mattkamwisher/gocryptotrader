@@ -439,11 +439,11 @@ func (p *Poloniex) PlaceOrder(currency string, rate, amount float64, immediate, 
 	return result, nil
 }
 
-func (p *Poloniex) GetOrder(orderID string) (exchange.EOrder, error) {
+func (p *Poloniex) GetOrder(orderID string) (exchange.Order, error) {
 	panic("unimplemented")
 }
 
-func (p *Poloniex) GetOrders() ([]exchange.EOrder, error) {
+func (p *Poloniex) GetOrders() ([]exchange.Order, error) {
 	panic("unimplemented")
 }
 

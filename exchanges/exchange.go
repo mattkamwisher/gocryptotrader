@@ -35,6 +35,31 @@ type AccountCurrencyInfo struct {
 	Hold         float64
 }
 
+type ExchangeOrderType string
+
+const (
+	ExchangeOrderTypeBuy  ExchangeOrderType = "buy"
+	ExchangeOrderTypeSell ExchangeOrderType = "sell"
+)
+
+type ExchangeOrderStatus string
+
+const (
+	ExchangeOrderStatusActive  ExchangeOrderStatus = "active"
+	ExchangeOrderStatusFilled  ExchangeOrderStatus = "filled"
+	ExchangeOrderStatusAborted ExchangeOrderStatus = "aborted"
+)
+
+type Order struct {
+	CurrencyPair string
+	Type         ExchangeOrderType
+	Amount       float64
+	Rate         float64
+	CreatedAt    float64 // timestamp
+	Status       ExchangeOrderStatus
+	OrderID      uint // ID of order this exchange order was generated for
+}
+
 // Base stores the individual exchange information
 type Base struct {
 	Name                        string
@@ -80,11 +105,8 @@ type IBotExchangeEx interface {
 	IBotExchange
 	NewOrder(symbol string, amount, price float64, side, orderType string) (int64, error)
 	CancelOrder(OrderID string) error
-	GetOrder(orderID string) (EOrder, error)
-	GetOrders() ([]EOrder, error)
-}
-
-type EOrder struct {
+	GetOrder(orderID string) (Order, error)
+	GetOrders() ([]Order, error)
 }
 
 // SetAssetTypes checks the exchange asset types (whether it supports SPOT,

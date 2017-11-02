@@ -223,7 +223,7 @@ func (b *Bittrex) CancelOrder(uuid string) error {
 	return err
 }
 
-func (b *Bittrex) GetOrder(orderID string) (exchange.EOrder, error) {
+func (b *Bittrex) GetOrder(orderID string) (exchange.Order, error) {
 	panic("unimplemented")
 }
 
@@ -231,7 +231,7 @@ func (b *Bittrex) NewOrder(symbol string, amount, price float64, side, orderType
 	panic("not implemented")
 }
 
-func (b *Bittrex) GetOrders() ([]exchange.EOrder, error) {
+func (b *Bittrex) GetOrders() ([]exchange.Order, error) {
 	panic("unimplemented")
 }
 

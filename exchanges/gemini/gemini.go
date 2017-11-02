@@ -311,11 +311,11 @@ func (g *Gemini) GetOrderStatus(orderID int64) (Order, error) {
 		g.SendAuthenticatedHTTPRequest("POST", geminiOrderStatus, request, &response)
 }
 
-func (g *Gemini) GetOrder(orderID string) (exchange.EOrder, error) {
+func (g *Gemini) GetOrder(orderID string) (exchange.Order, error) {
 	panic("unimplemented")
 }
 
-func (g *Gemini) GetOrders() ([]exchange.EOrder, error) {
+func (g *Gemini) GetOrders() ([]exchange.Order, error) {
 	panic("unimplemented")
 }
 

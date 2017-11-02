@@ -206,7 +206,7 @@ func (l *Liqui) GetOrderInfo(OrderID int64) (map[string]OrderInfo, error) {
 	return result, l.SendAuthenticatedHTTPRequest(liquiOrderInfo, req, &result)
 }
 
-func (l *Liqui) GetOrder(orderID string) (exchange.EOrder, error) {
+func (l *Liqui) GetOrder(orderID string) (exchange.Order, error) {
 	panic("unimplemented")
 }
 
@@ -214,7 +214,7 @@ func (l *Liqui) NewOrder(symbol string, amount, price float64, side, orderType s
 	panic("not implemented")
 }
 
-func (l *Liqui) GetOrders() ([]exchange.EOrder, error) {
+func (l *Liqui) GetOrders() ([]exchange.Order, error) {
 	panic("unimplemented")
 }
 
