@@ -35,28 +35,28 @@ type AccountCurrencyInfo struct {
 	Hold         float64
 }
 
-type ExchangeOrderType string
+type OrderType string
 
 const (
-	ExchangeOrderTypeBuy  ExchangeOrderType = "buy"
-	ExchangeOrderTypeSell ExchangeOrderType = "sell"
+	OrderTypeBuy  OrderType = "buy"
+	OrderTypeSell OrderType = "sell"
 )
 
-type ExchangeOrderStatus string
+type OrderStatus string
 
 const (
-	ExchangeOrderStatusActive  ExchangeOrderStatus = "active"
-	ExchangeOrderStatusFilled  ExchangeOrderStatus = "filled"
-	ExchangeOrderStatusAborted ExchangeOrderStatus = "aborted"
+	OrderStatusActive  OrderStatus = "active"
+	OrderStatusFilled  OrderStatus = "filled"
+	OrderStatusAborted OrderStatus = "aborted"
 )
 
 type Order struct {
 	CurrencyPair string
-	Type         ExchangeOrderType
+	Type         OrderType
 	Amount       float64
 	Rate         float64
 	CreatedAt    float64 // timestamp
-	Status       ExchangeOrderStatus
+	Status       OrderStatus
 	OrderID      uint // ID of order this exchange order was generated for
 }
 
